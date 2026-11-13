@@ -106,14 +106,24 @@
 <div id="hospedesAnteriores"></div>
 <div id="camposHospede" style="display:none">
 
-<div class="field" style="margin:0 0 24px"><label for="responsavelReserva">Insira o nome de quem fez a reserva:</label><input id="responsavelReserva" name="responsavelReserva" type="text" autocomplete="name" placeholder="Nome completo de quem fez a reserva" required=""/></div>
+<div id="blocoResponsavelReserva" class="field" style="margin:0 0 24px"><label for="responsavelReserva">Insira o nome de quem fez a reserva:</label><input id="responsavelReserva" name="responsavelReserva" type="text" autocomplete="name" placeholder="Nome completo de quem fez a reserva" required=""/></div>
+<div id="blocoVeiculoProprio" class="field" style="margin:0 0 20px">
+<label for="veiculoProprio">Está com veículo próprio?</label>
+<select id="veiculoProprio" required><option value="">Selecione</option><option value="Sim">Sim</option><option value="Não">Não</option></select>
+</div>
+<div id="dadosVeiculo" hidden style="margin:0 0 22px">
+<div class="grid">
+<div class="field"><label for="veiculoDescricao">Marca, modelo e cor</label><input id="veiculoDescricao" type="text" placeholder="Ex.: Fiat Argo, branco"/></div>
+<div class="field"><label for="veiculoPlaca">Placa</label><input id="veiculoPlaca" type="text" maxlength="8" placeholder="Ex.: ABC1D23" style="text-transform:uppercase"/></div>
+</div>
+</div>
 <p style="margin:0 0 16px;font-weight:600;color:#173c5a">Agora, abaixo preencha com seus próprios dados</p>
 <fieldset class="section"><legend>Dados pessoais e contato</legend><div class="grid">
 <div class="field"><label for="nome">Nome</label><input autocomplete="given-name" id="nome" required=""/></div>
 <div class="field"><label for="sobrenome">Sobrenome</label><input autocomplete="family-name" id="sobrenome" required=""/></div>
 <div class="field"><label for="email">E-mail</label><input autocomplete="email" id="email" required="" type="email"/></div>
-<div class="field"><label for="telefone">Telefone</label><input autocomplete="tel-national" id="telefone" required="" type="tel"/></div>
-<div class="field"><label for="celular">Celular</label><input id="celular" required="" type="tel"/></div>
+<div class="field"><label for="telefone">Telefone</label><input autocomplete="tel-national" id="telefone" type="tel"/></div>
+<div class="field"><label for="celular">Celular</label><input id="celular" type="tel"/></div>
 <div class="field"><label for="nascimento">Data de nascimento</label><input id="nascimento" required="" type="text" inputmode="numeric" maxlength="10" placeholder="DD/MM/AAAA" autocomplete="bday"/></div>
 <div class="field"><label for="genero">Gênero</label><select id="genero" required=""><option value="">Selecione</option><option>Masculino</option><option>Feminino</option></select></div>
 <div class="field"><label for="nacionalidade">Nacionalidade</label><select autocomplete="off" id="nacionalidade" required=""><option value="">Selecione um país</option><option value="Brasil">Brasil</option><option value="Argentina">Argentina</option><option value="Chile">Chile</option><option value="Afeganistão">Afeganistão</option><option value="Albânia">Albânia</option><option value="Alemanha">Alemanha</option><option value="Andorra">Andorra</option><option value="Angola">Angola</option><option value="Anguila">Anguila</option><option value="Antártida">Antártida</option><option value="Antígua e Barbuda">Antígua e Barbuda</option><option value="Argélia">Argélia</option><option value="Armênia">Armênia</option><option value="Aruba">Aruba</option><option value="Arábia Saudita">Arábia Saudita</option><option value="Austrália">Austrália</option><option value="Azerbaijão">Azerbaijão</option><option value="Bahamas">Bahamas</option><option value="Bangladesh">Bangladesh</option><option value="Barbados">Barbados</option><option value="Barein">Barein</option><option value="Belize">Belize</option><option value="Benin">Benin</option><option value="Bermudas">Bermudas</option><option value="Bielorrússia">Bielorrússia</option><option value="Bolívia">Bolívia</option><option value="Botsuana">Botsuana</option><option value="Brunei">Brunei</option><option value="Bulgária">Bulgária</option><option value="Burquina Faso">Burquina Faso</option><option value="Burundi">Burundi</option><option value="Butão">Butão</option><option value="Bélgica">Bélgica</option><option value="Bósnia e Herzegovina">Bósnia e Herzegovina</option><option value="Cabo Verde">Cabo Verde</option><option value="Camarões">Camarões</option><option value="Camboja">Camboja</option><option value="Canadá">Canadá</option><option value="Catar">Catar</option><option value="Cazaquistão">Cazaquistão</option><option value="Chade">Chade</option><option value="China">China</option><option value="Chipre">Chipre</option><option value="Cidade do Vaticano">Cidade do Vaticano</option><option value="Colômbia">Colômbia</option><option value="Comores">Comores</option><option value="Congo - Kinshasa">Congo - Kinshasa</option><option value="Coreia do Norte">Coreia do Norte</option><option value="Coreia do Sul">Coreia do Sul</option><option value="Costa do Marfim">Costa do Marfim</option><option value="Costa Rica">Costa Rica</option><option value="Croácia">Croácia</option><option value="Cuba">Cuba</option><option value="Curaçao">Curaçao</option><option value="Dinamarca">Dinamarca</option><option value="Djibuti">Djibuti</option><option value="Dominica">Dominica</option><option value="Egito">Egito</option><option value="El Salvador">El Salvador</option><option value="Emirados Árabes Unidos">Emirados Árabes Unidos</option><option value="Equador">Equador</option><option value="Eritreia">Eritreia</option><option value="Eslováquia">Eslováquia</option><option value="Eslovênia">Eslovênia</option><option value="Espanha">Espanha</option><option value="Essuatíni">Essuatíni</option><option value="Estados Unidos">Estados Unidos</option><option value="Estônia">Estônia</option><option value="Etiópia">Etiópia</option><option value="Fiji">Fiji</option><option value="Filipinas">Filipinas</option><option value="Finlândia">Finlândia</option><option value="França">França</option><option value="Gabão">Gabão</option><option value="Gana">Gana</option><option value="Geórgia">Geórgia</option><option value="Gibraltar">Gibraltar</option><option value="Granada">Granada</option><option value="Groenlândia">Groenlândia</option><option value="Grécia">Grécia</option><option value="Guadalupe">Guadalupe</option><option value="Guam">Guam</option><option value="Guatemala">Guatemala</option><option value="Guernsey">Guernsey</option><option value="Guiana">Guiana</option><option value="Guiana Francesa">Guiana Francesa</option><option value="Guiné">Guiné</option><option value="Guiné Equatorial">Guiné Equatorial</option><option value="Guiné-Bissau">Guiné-Bissau</option><option value="Gâmbia">Gâmbia</option><option value="Haiti">Haiti</option><option value="Honduras">Honduras</option><option value="Hong Kong, RAE da China">Hong Kong, RAE da China</option><option value="Hungria">Hungria</option><option value="Ilha Bouvet">Ilha Bouvet</option><option value="Ilha Christmas">Ilha Christmas</option><option value="Ilha de Man">Ilha de Man</option><option value="Ilha Norfolk">Ilha Norfolk</option><option value="Ilhas Aland">Ilhas Aland</option><option value="Ilhas Cayman">Ilhas Cayman</option><option value="Ilhas Cocos (Keeling)">Ilhas Cocos (Keeling)</option><option value="Ilhas Cook">Ilhas Cook</option><option value="Ilhas Faroé">Ilhas Faroé</option><option value="Ilhas Geórgia do Sul e Sandwich do Sul">Ilhas Geórgia do Sul e Sandwich do Sul</option><option value="Ilhas Heard e McDonald">Ilhas Heard e McDonald</option><option value="Ilhas Malvinas">Ilhas Malvinas</option><option value="Ilhas Marianas do Norte">Ilhas Marianas do Norte</option><option value="Ilhas Marshall">Ilhas Marshall</option><option value="Ilhas Menores Distantes dos EUA">Ilhas Menores Distantes dos EUA</option><option value="Ilhas Pitcairn">Ilhas Pitcairn</option><option value="Ilhas Salomão">Ilhas Salomão</option><option value="Ilhas Turcas e Caicos">Ilhas Turcas e Caicos</option><option value="Ilhas Virgens Americanas">Ilhas Virgens Americanas</option><option value="Ilhas Virgens Britânicas">Ilhas Virgens Britânicas</option><option value="Indonésia">Indonésia</option><option value="Iraque">Iraque</option><option value="Irlanda">Irlanda</option><option value="Irã">Irã</option><option value="Islândia">Islândia</option><option value="Israel">Israel</option><option value="Itália">Itália</option><option value="Iêmen">Iêmen</option><option value="Jamaica">Jamaica</option><option value="Japão">Japão</option><option value="Jersey">Jersey</option><option value="Jordânia">Jordânia</option><option value="Kuwait">Kuwait</option><option value="Laos">Laos</option><option value="Lesoto">Lesoto</option><option value="Letônia">Letônia</option><option value="Libéria">Libéria</option><option value="Liechtenstein">Liechtenstein</option><option value="Lituânia">Lituânia</option><option value="Luxemburgo">Luxemburgo</option><option value="Líbano">Líbano</option><option value="Líbia">Líbia</option><option value="Macau, RAE da China">Macau, RAE da China</option><option value="Macedônia do Norte">Macedônia do Norte</option><option value="Madagascar">Madagascar</option><option value="Malaui">Malaui</option><option value="Maldivas">Maldivas</option><option value="Mali">Mali</option><option value="Malta">Malta</option><option value="Malásia">Malásia</option><option value="Marrocos">Marrocos</option><option value="Martinica">Martinica</option><option value="Mauritânia">Mauritânia</option><option value="Maurício">Maurício</option><option value="Mayotte">Mayotte</option><option value="Mianmar (Birmânia)">Mianmar (Birmânia)</option><option value="Micronésia">Micronésia</option><option value="Moldávia">Moldávia</option><option value="Mongólia">Mongólia</option><option value="Montenegro">Montenegro</option><option value="Montserrat">Montserrat</option><option value="Moçambique">Moçambique</option><option value="México">México</option><option value="Mônaco">Mônaco</option><option value="Namíbia">Namíbia</option><option value="Nauru">Nauru</option><option value="Nepal">Nepal</option><option value="Nicarágua">Nicarágua</option><option value="Nigéria">Nigéria</option><option value="Niue">Niue</option><option value="Noruega">Noruega</option><option value="Nova Caledônia">Nova Caledônia</option><option value="Nova Zelândia">Nova Zelândia</option><option value="Níger">Níger</option><option value="Omã">Omã</option><option value="Palau">Palau</option><option value="Panamá">Panamá</option><option value="Papua-Nova Guiné">Papua-Nova Guiné</option><option value="Paquistão">Paquistão</option><option value="Paraguai">Paraguai</option><option value="Países Baixos">Países Baixos</option><option value="Países Baixos Caribenhos">Países Baixos Caribenhos</option><option value="Peru">Peru</option><option value="Polinésia Francesa">Polinésia Francesa</option><option value="Polônia">Polônia</option><option value="Porto Rico">Porto Rico</option><option value="Portugal">Portugal</option><option value="Quirguistão">Quirguistão</option><option value="Quiribati">Quiribati</option><option value="Quênia">Quênia</option><option value="Reino Unido">Reino Unido</option><option value="República Centro-Africana">República Centro-Africana</option><option value="República do Congo">República do Congo</option><option value="República Dominicana">República Dominicana</option><option value="Reunião">Reunião</option><option value="Romênia">Romênia</option><option value="Ruanda">Ruanda</option><option value="Rússia">Rússia</option><option value="Saara Ocidental">Saara Ocidental</option><option value="Samoa">Samoa</option><option value="Samoa Americana">Samoa Americana</option><option value="San Marino">San Marino</option><option value="Santa Helena">Santa Helena</option><option value="Santa Lúcia">Santa Lúcia</option><option value="Seicheles">Seicheles</option><option value="Senegal">Senegal</option><option value="Serra Leoa">Serra Leoa</option><option value="Singapura">Singapura</option><option value="Sint Maarten">Sint Maarten</option><option value="Somália">Somália</option><option value="Sri Lanka">Sri Lanka</option><option value="Sudão">Sudão</option><option value="Sudão do Sul">Sudão do Sul</option><option value="Suriname">Suriname</option><option value="Suécia">Suécia</option><option value="Suíça">Suíça</option><option value="Svalbard e Jan Mayen">Svalbard e Jan Mayen</option><option value="São Bartolomeu">São Bartolomeu</option><option value="São Cristóvão e Névis">São Cristóvão e Névis</option><option value="São Martinho">São Martinho</option><option value="São Pedro e Miquelão">São Pedro e Miquelão</option><option value="São Tomé e Príncipe">São Tomé e Príncipe</option><option value="São Vicente e Granadinas">São Vicente e Granadinas</option><option value="Sérvia">Sérvia</option><option value="Síria">Síria</option><option value="Tadjiquistão">Tadjiquistão</option><option value="Tailândia">Tailândia</option><option value="Taiwan">Taiwan</option><option value="Tanzânia">Tanzânia</option><option value="Tchéquia">Tchéquia</option><option value="Território Britânico do Oceano Índico">Território Britânico do Oceano Índico</option><option value="Territórios Franceses do Sul">Territórios Franceses do Sul</option><option value="Territórios palestinos">Territórios palestinos</option><option value="Timor-Leste">Timor-Leste</option><option value="Togo">Togo</option><option value="Tokelau">Tokelau</option><option value="Tonga">Tonga</option><option value="Trinidad e Tobago">Trinidad e Tobago</option><option value="Tunísia">Tunísia</option><option value="Turcomenistão">Turcomenistão</option><option value="Turquia">Turquia</option><option value="Tuvalu">Tuvalu</option><option value="Ucrânia">Ucrânia</option><option value="Uganda">Uganda</option><option value="Uruguai">Uruguai</option><option value="Uzbequistão">Uzbequistão</option><option value="Vanuatu">Vanuatu</option><option value="Venezuela">Venezuela</option><option value="Vietnã">Vietnã</option><option value="Wallis e Futuna">Wallis e Futuna</option><option value="Zimbábue">Zimbábue</option><option value="Zâmbia">Zâmbia</option><option value="África do Sul">África do Sul</option><option value="Áustria">Áustria</option><option value="Índia">Índia</option></select></div>
@@ -126,13 +136,18 @@
 <div class="field"><label for="transporte">Meio de transporte</label><select id="transporte" required=""><option value="">Selecione</option><option>Automóvel</option><option>Ônibus</option><option>Avião</option><option>Motocicleta</option><option>Navio/Barco</option><option>A Pé</option><option>Bonde (ou VLT)</option><option>Bibicleta</option></select></div>
 </div></fieldset>
 <fieldset class="section"><legend>Endereço</legend><div class="grid">
+<div id="reutilizar-endereco" class="field wide" hidden style="padding:12px 14px;border:1px solid #c9d6df;border-radius:10px;background:#f4f8fb;margin-bottom:10px">
+<label for="usar-endereco-anterior" style="display:block;margin-bottom:8px">Usar o mesmo endereço do hóspede anterior?</label>
+<select id="usar-endereco-anterior" aria-label="Usar o mesmo endereço do hóspede anterior?" style="width:100%"><option value="">Selecione</option><option value="Sim">Sim</option><option value="Não">Não</option></select>
+<small style="display:block;margin-top:7px">Ao selecionar Sim, o endereço será copiado do hóspede anterior. Você poderá alterá-lo, se necessário.</small>
+</div>
 <div class="field wide"><label for="endereco">Endereço</label><input autocomplete="street-address" id="endereco" required=""/></div>
-<div class="field"><label for="complemento">Complemento</label><input id="complemento" placeholder="Opcional" required=""/></div>
+<div class="field"><label for="complemento">Complemento</label><input id="complemento" placeholder="Opcional"/></div>
 <div class="field"><label for="pais">País</label><select autocomplete="country-name" id="pais" required=""><option value="">Selecione um país</option><option value="Brasil">Brasil</option><option value="Argentina">Argentina</option><option value="Chile">Chile</option><option value="Afeganistão">Afeganistão</option><option value="Albânia">Albânia</option><option value="Alemanha">Alemanha</option><option value="Andorra">Andorra</option><option value="Angola">Angola</option><option value="Anguila">Anguila</option><option value="Antártida">Antártida</option><option value="Antígua e Barbuda">Antígua e Barbuda</option><option value="Argélia">Argélia</option><option value="Armênia">Armênia</option><option value="Aruba">Aruba</option><option value="Arábia Saudita">Arábia Saudita</option><option value="Austrália">Austrália</option><option value="Azerbaijão">Azerbaijão</option><option value="Bahamas">Bahamas</option><option value="Bangladesh">Bangladesh</option><option value="Barbados">Barbados</option><option value="Barein">Barein</option><option value="Belize">Belize</option><option value="Benin">Benin</option><option value="Bermudas">Bermudas</option><option value="Bielorrússia">Bielorrússia</option><option value="Bolívia">Bolívia</option><option value="Botsuana">Botsuana</option><option value="Brunei">Brunei</option><option value="Bulgária">Bulgária</option><option value="Burquina Faso">Burquina Faso</option><option value="Burundi">Burundi</option><option value="Butão">Butão</option><option value="Bélgica">Bélgica</option><option value="Bósnia e Herzegovina">Bósnia e Herzegovina</option><option value="Cabo Verde">Cabo Verde</option><option value="Camarões">Camarões</option><option value="Camboja">Camboja</option><option value="Canadá">Canadá</option><option value="Catar">Catar</option><option value="Cazaquistão">Cazaquistão</option><option value="Chade">Chade</option><option value="China">China</option><option value="Chipre">Chipre</option><option value="Cidade do Vaticano">Cidade do Vaticano</option><option value="Colômbia">Colômbia</option><option value="Comores">Comores</option><option value="Congo - Kinshasa">Congo - Kinshasa</option><option value="Coreia do Norte">Coreia do Norte</option><option value="Coreia do Sul">Coreia do Sul</option><option value="Costa do Marfim">Costa do Marfim</option><option value="Costa Rica">Costa Rica</option><option value="Croácia">Croácia</option><option value="Cuba">Cuba</option><option value="Curaçao">Curaçao</option><option value="Dinamarca">Dinamarca</option><option value="Djibuti">Djibuti</option><option value="Dominica">Dominica</option><option value="Egito">Egito</option><option value="El Salvador">El Salvador</option><option value="Emirados Árabes Unidos">Emirados Árabes Unidos</option><option value="Equador">Equador</option><option value="Eritreia">Eritreia</option><option value="Eslováquia">Eslováquia</option><option value="Eslovênia">Eslovênia</option><option value="Espanha">Espanha</option><option value="Essuatíni">Essuatíni</option><option value="Estados Unidos">Estados Unidos</option><option value="Estônia">Estônia</option><option value="Etiópia">Etiópia</option><option value="Fiji">Fiji</option><option value="Filipinas">Filipinas</option><option value="Finlândia">Finlândia</option><option value="França">França</option><option value="Gabão">Gabão</option><option value="Gana">Gana</option><option value="Geórgia">Geórgia</option><option value="Gibraltar">Gibraltar</option><option value="Granada">Granada</option><option value="Groenlândia">Groenlândia</option><option value="Grécia">Grécia</option><option value="Guadalupe">Guadalupe</option><option value="Guam">Guam</option><option value="Guatemala">Guatemala</option><option value="Guernsey">Guernsey</option><option value="Guiana">Guiana</option><option value="Guiana Francesa">Guiana Francesa</option><option value="Guiné">Guiné</option><option value="Guiné Equatorial">Guiné Equatorial</option><option value="Guiné-Bissau">Guiné-Bissau</option><option value="Gâmbia">Gâmbia</option><option value="Haiti">Haiti</option><option value="Honduras">Honduras</option><option value="Hong Kong, RAE da China">Hong Kong, RAE da China</option><option value="Hungria">Hungria</option><option value="Ilha Bouvet">Ilha Bouvet</option><option value="Ilha Christmas">Ilha Christmas</option><option value="Ilha de Man">Ilha de Man</option><option value="Ilha Norfolk">Ilha Norfolk</option><option value="Ilhas Aland">Ilhas Aland</option><option value="Ilhas Cayman">Ilhas Cayman</option><option value="Ilhas Cocos (Keeling)">Ilhas Cocos (Keeling)</option><option value="Ilhas Cook">Ilhas Cook</option><option value="Ilhas Faroé">Ilhas Faroé</option><option value="Ilhas Geórgia do Sul e Sandwich do Sul">Ilhas Geórgia do Sul e Sandwich do Sul</option><option value="Ilhas Heard e McDonald">Ilhas Heard e McDonald</option><option value="Ilhas Malvinas">Ilhas Malvinas</option><option value="Ilhas Marianas do Norte">Ilhas Marianas do Norte</option><option value="Ilhas Marshall">Ilhas Marshall</option><option value="Ilhas Menores Distantes dos EUA">Ilhas Menores Distantes dos EUA</option><option value="Ilhas Pitcairn">Ilhas Pitcairn</option><option value="Ilhas Salomão">Ilhas Salomão</option><option value="Ilhas Turcas e Caicos">Ilhas Turcas e Caicos</option><option value="Ilhas Virgens Americanas">Ilhas Virgens Americanas</option><option value="Ilhas Virgens Britânicas">Ilhas Virgens Britânicas</option><option value="Indonésia">Indonésia</option><option value="Iraque">Iraque</option><option value="Irlanda">Irlanda</option><option value="Irã">Irã</option><option value="Islândia">Islândia</option><option value="Israel">Israel</option><option value="Itália">Itália</option><option value="Iêmen">Iêmen</option><option value="Jamaica">Jamaica</option><option value="Japão">Japão</option><option value="Jersey">Jersey</option><option value="Jordânia">Jordânia</option><option value="Kuwait">Kuwait</option><option value="Laos">Laos</option><option value="Lesoto">Lesoto</option><option value="Letônia">Letônia</option><option value="Libéria">Libéria</option><option value="Liechtenstein">Liechtenstein</option><option value="Lituânia">Lituânia</option><option value="Luxemburgo">Luxemburgo</option><option value="Líbano">Líbano</option><option value="Líbia">Líbia</option><option value="Macau, RAE da China">Macau, RAE da China</option><option value="Macedônia do Norte">Macedônia do Norte</option><option value="Madagascar">Madagascar</option><option value="Malaui">Malaui</option><option value="Maldivas">Maldivas</option><option value="Mali">Mali</option><option value="Malta">Malta</option><option value="Malásia">Malásia</option><option value="Marrocos">Marrocos</option><option value="Martinica">Martinica</option><option value="Mauritânia">Mauritânia</option><option value="Maurício">Maurício</option><option value="Mayotte">Mayotte</option><option value="Mianmar (Birmânia)">Mianmar (Birmânia)</option><option value="Micronésia">Micronésia</option><option value="Moldávia">Moldávia</option><option value="Mongólia">Mongólia</option><option value="Montenegro">Montenegro</option><option value="Montserrat">Montserrat</option><option value="Moçambique">Moçambique</option><option value="México">México</option><option value="Mônaco">Mônaco</option><option value="Namíbia">Namíbia</option><option value="Nauru">Nauru</option><option value="Nepal">Nepal</option><option value="Nicarágua">Nicarágua</option><option value="Nigéria">Nigéria</option><option value="Niue">Niue</option><option value="Noruega">Noruega</option><option value="Nova Caledônia">Nova Caledônia</option><option value="Nova Zelândia">Nova Zelândia</option><option value="Níger">Níger</option><option value="Omã">Omã</option><option value="Palau">Palau</option><option value="Panamá">Panamá</option><option value="Papua-Nova Guiné">Papua-Nova Guiné</option><option value="Paquistão">Paquistão</option><option value="Paraguai">Paraguai</option><option value="Países Baixos">Países Baixos</option><option value="Países Baixos Caribenhos">Países Baixos Caribenhos</option><option value="Peru">Peru</option><option value="Polinésia Francesa">Polinésia Francesa</option><option value="Polônia">Polônia</option><option value="Porto Rico">Porto Rico</option><option value="Portugal">Portugal</option><option value="Quirguistão">Quirguistão</option><option value="Quiribati">Quiribati</option><option value="Quênia">Quênia</option><option value="Reino Unido">Reino Unido</option><option value="República Centro-Africana">República Centro-Africana</option><option value="República do Congo">República do Congo</option><option value="República Dominicana">República Dominicana</option><option value="Reunião">Reunião</option><option value="Romênia">Romênia</option><option value="Ruanda">Ruanda</option><option value="Rússia">Rússia</option><option value="Saara Ocidental">Saara Ocidental</option><option value="Samoa">Samoa</option><option value="Samoa Americana">Samoa Americana</option><option value="San Marino">San Marino</option><option value="Santa Helena">Santa Helena</option><option value="Santa Lúcia">Santa Lúcia</option><option value="Seicheles">Seicheles</option><option value="Senegal">Senegal</option><option value="Serra Leoa">Serra Leoa</option><option value="Singapura">Singapura</option><option value="Sint Maarten">Sint Maarten</option><option value="Somália">Somália</option><option value="Sri Lanka">Sri Lanka</option><option value="Sudão">Sudão</option><option value="Sudão do Sul">Sudão do Sul</option><option value="Suriname">Suriname</option><option value="Suécia">Suécia</option><option value="Suíça">Suíça</option><option value="Svalbard e Jan Mayen">Svalbard e Jan Mayen</option><option value="São Bartolomeu">São Bartolomeu</option><option value="São Cristóvão e Névis">São Cristóvão e Névis</option><option value="São Martinho">São Martinho</option><option value="São Pedro e Miquelão">São Pedro e Miquelão</option><option value="São Tomé e Príncipe">São Tomé e Príncipe</option><option value="São Vicente e Granadinas">São Vicente e Granadinas</option><option value="Sérvia">Sérvia</option><option value="Síria">Síria</option><option value="Tadjiquistão">Tadjiquistão</option><option value="Tailândia">Tailândia</option><option value="Taiwan">Taiwan</option><option value="Tanzânia">Tanzânia</option><option value="Tchéquia">Tchéquia</option><option value="Território Britânico do Oceano Índico">Território Britânico do Oceano Índico</option><option value="Territórios Franceses do Sul">Territórios Franceses do Sul</option><option value="Territórios palestinos">Territórios palestinos</option><option value="Timor-Leste">Timor-Leste</option><option value="Togo">Togo</option><option value="Tokelau">Tokelau</option><option value="Tonga">Tonga</option><option value="Trinidad e Tobago">Trinidad e Tobago</option><option value="Tunísia">Tunísia</option><option value="Turcomenistão">Turcomenistão</option><option value="Turquia">Turquia</option><option value="Tuvalu">Tuvalu</option><option value="Ucrânia">Ucrânia</option><option value="Uganda">Uganda</option><option value="Uruguai">Uruguai</option><option value="Uzbequistão">Uzbequistão</option><option value="Vanuatu">Vanuatu</option><option value="Venezuela">Venezuela</option><option value="Vietnã">Vietnã</option><option value="Wallis e Futuna">Wallis e Futuna</option><option value="Zimbábue">Zimbábue</option><option value="Zâmbia">Zâmbia</option><option value="África do Sul">África do Sul</option><option value="Áustria">Áustria</option><option value="Índia">Índia</option></select></div>
 <div class="field"><label for="estado">Estado</label><select autocomplete="address-level1" id="estado" required=""><option value="">Selecione o estado</option><option value="Acre">Acre</option><option value="Alagoas">Alagoas</option><option value="Amapá">Amapá</option><option value="Amazonas">Amazonas</option><option value="Bahia">Bahia</option><option value="Ceará">Ceará</option><option value="Distrito Federal">Distrito Federal</option><option value="Espírito Santo">Espírito Santo</option><option value="Goiás">Goiás</option><option value="Maranhão">Maranhão</option><option value="Mato Grosso">Mato Grosso</option><option value="Mato Grosso do Sul">Mato Grosso do Sul</option><option value="Minas Gerais">Minas Gerais</option><option value="Pará">Pará</option><option value="Paraíba">Paraíba</option><option value="Paraná">Paraná</option><option value="Pernambuco">Pernambuco</option><option value="Piauí">Piauí</option><option value="Rio de Janeiro">Rio de Janeiro</option><option value="Rio Grande do Norte">Rio Grande do Norte</option><option value="Rio Grande do Sul">Rio Grande do Sul</option><option value="Rondônia">Rondônia</option><option value="Roraima">Roraima</option><option value="Santa Catarina">Santa Catarina</option><option value="São Paulo">São Paulo</option><option value="Sergipe">Sergipe</option><option value="Tocantins">Tocantins</option></select></div>
 <div class="field"><label for="cidade">Cidade</label><input autocomplete="address-level2" id="cidade" required=""/></div>
-<div class="field"><label for="cep">CEP (código postal)</label><input autocomplete="postal-code" id="cep" required=""/></div>
-<div class="field"><label for="bairro">Bairro</label><input id="bairro" required=""/></div>
+<div class="field"><label for="cep">CEP (código postal)</label><input autocomplete="postal-code" id="cep"/></div>
+<div class="field"><label for="bairro">Bairro</label><input id="bairro"/></div>
 </div></fieldset>
 <fieldset class="section"><legend>Documento</legend><div class="grid">
 <div class="field"><label for="tipoDocumento">Tipo de documento</label><select id="tipoDocumento" required=""><option value="">Selecione</option><option value="Passaporte">Passaporte</option><option value="CPF">CPF</option></select></div>
@@ -161,12 +176,90 @@ botaoAdicionarHospede.addEventListener('click',()=>{
   atualizarBotaoNovo();
   document.getElementById('responsavelReserva').focus();
 });
-const campos=[['Insira o nome de quem fez a reserva','responsavelReserva'],['Nome','nome'],['Sobrenome','sobrenome'],['E-mail','email'],['Telefone','telefone'],['Celular','celular'],['Data de nascimento','nascimento'],['Gênero','genero'],['Nacionalidade','nacionalidade'],['Raça','raca'],['Possui uma necessidade especial?','necessidade'],['Necessidades especiais','especiais'],['Motivo da viagem','motivo'],['Meio de transporte','transporte'],['Endereço','endereco'],['Complemento','complemento'],['País','pais'],['Estado','estado'],['Cidade','cidade'],['CEP (código postal)','cep'],['Bairro','bairro'],['Tipo de documento','tipoDocumento'],['Número do documento','numeroDocumento'],['País de emissão do documento','paisEmissao']];
+const campos=[['Insira o nome de quem fez a reserva','responsavelReserva'],['Está com veículo próprio?','veiculoProprio'],['Nome','nome'],['Sobrenome','sobrenome'],['E-mail','email'],['Telefone','telefone'],['Celular','celular'],['Data de nascimento','nascimento'],['Gênero','genero'],['Nacionalidade','nacionalidade'],['Raça','raca'],['Possui uma necessidade especial?','necessidade'],['Necessidades especiais','especiais'],['Motivo da viagem','motivo'],['Meio de transporte','transporte'],['Endereço','endereco'],['Complemento','complemento'],['País','pais'],['Estado','estado'],['Cidade','cidade'],['CEP (código postal)','cep'],['Bairro','bairro'],['Tipo de documento','tipoDocumento'],['Número do documento','numeroDocumento'],['País de emissão do documento','paisEmissao']];
 const el=id=>document.getElementById(id), form=el('formulario');
+const CAMPOS_VEICULO=['veiculoDescricao','veiculoPlaca'];
+function atualizarVeiculo(){
+ const sim=el('veiculoProprio').value==='Sim';
+ el('dadosVeiculo').hidden=!sim;
+ for(const id of CAMPOS_VEICULO){
+  el(id).required=sim;
+  if(!sim){el(id).value='';el(id).setCustomValidity('');}
+ }
+}
+el('veiculoProprio').addEventListener('change',atualizarVeiculo);
+el('veiculoPlaca').addEventListener('input',()=>{el('veiculoPlaca').value=el('veiculoPlaca').value.toUpperCase();});
+
 let finalizado=false, textoFinal='', temporizadorEnvio=null;
 const hospedesSalvos=[];
 let indiceEdicao=null, rascunhoSuspenso=null;
 const LIMITE_HOSPEDES=5;
+// Reutilização de endereço por hóspede, sem alterar a mensagem enviada ao Cloudbeds.
+const CAMPOS_ENDERECO=['endereco','complemento','pais','estado','cidade','cep','bairro'];
+const seletorEnderecoAnterior=el('usar-endereco-anterior');
+const blocoEnderecoAnterior=el('reutilizar-endereco');
+let enderecoAnteriorEscolha='';
+function indiceHospedeAtual(){return indiceEdicao===null?hospedesSalvos.length:indiceEdicao;}
+
+function atualizarDadosComunsReserva(){
+ const adicional=indiceHospedeAtual()>0;
+ const primeiro=hospedesSalvos[0];
+ el('blocoResponsavelReserva').hidden=adicional;
+ el('blocoVeiculoProprio').hidden=adicional;
+ if(adicional && primeiro?.valores){
+  el('responsavelReserva').value=primeiro.valores.responsavelReserva||'';
+  el('veiculoProprio').value=primeiro.valores.veiculoProprio||'';
+  el('veiculoDescricao').value=primeiro.veiculoDescricao||'';
+  el('veiculoPlaca').value=primeiro.veiculoPlaca||'';
+ }
+ atualizarVeiculo();
+ // A descrição do veículo também deve permanecer oculta para hóspedes adicionais.
+ el('dadosVeiculo').hidden=adicional || el('veiculoProprio').value!=='Sim';
+}
+
+function atualizarVisibilidadeEndereco(){
+ const ocultar=indiceHospedeAtual()>0 && enderecoAnteriorEscolha==='Sim';
+ for(const id of CAMPOS_ENDERECO){
+  const campo=el(id);
+  const bloco=campo.closest('.field');
+  if(bloco)bloco.hidden=ocultar;
+ }
+}
+function limparCamposEndereco(){
+ for(const id of CAMPOS_ENDERECO){
+  const campo=el(id);
+  campo.value='';
+  campo.setCustomValidity('');
+  campo.dispatchEvent(new Event('input',{bubbles:true}));
+  campo.dispatchEvent(new Event('change',{bubbles:true}));
+ }
+}
+function atualizarPerguntaEndereco(escolha=''){
+ const indice=indiceHospedeAtual();
+ blocoEnderecoAnterior.hidden=indice===0;
+ seletorEnderecoAnterior.value=indice===0?'':escolha;
+ enderecoAnteriorEscolha=seletorEnderecoAnterior.value;
+ atualizarVisibilidadeEndereco();
+}
+function copiarEnderecoAnterior(){
+ const indice=indiceHospedeAtual();
+ if(indice<1)return;
+ const anterior=hospedesSalvos[indice-1];
+ if(!anterior?.valores)return;
+ for(const id of CAMPOS_ENDERECO){
+  const campo=el(id);
+  campo.value=anterior.valores[id]??'';
+  campo.dispatchEvent(new Event('input',{bubbles:true}));
+  campo.dispatchEvent(new Event('change',{bubbles:true}));
+ }
+}
+seletorEnderecoAnterior.addEventListener('change',()=>{
+ enderecoAnteriorEscolha=seletorEnderecoAnterior.value;
+ if(enderecoAnteriorEscolha==='Sim')copiarEnderecoAnterior();
+ else if(enderecoAnteriorEscolha==='Não')limparCamposEndereco();
+ atualizarVisibilidadeEndereco();
+});
+
 const areaAnteriores=el('hospedesAnteriores');
 const areaAtual=el('camposHospede');
 const botaoNovo=el('novoHospede');
@@ -224,7 +317,12 @@ el('nascimento').addEventListener('input',e=>{
 });
 function limparErros(){form.querySelectorAll('.invalido').forEach(e=>e.classList.remove('invalido'));form.querySelectorAll('.campo-erro').forEach(e=>e.remove());}
 function marcarErro(campo,rotulo){const box=campo.closest('.field');box.classList.add('invalido');const aviso=document.createElement('small');aviso.className='campo-erro';aviso.textContent=`Preencha o campo ${rotulo}.`;box.append(aviso);}
-function validar(){validarNascimento();limparErros();const faltantes=[];for(const [rotulo,id] of campos){if(id==='especiais'&&el('necessidade').value!=='Sim')continue;const campo=el(id);if(!campo.value.trim()){faltantes.push(rotulo);marcarErro(campo,rotulo);}else if(!campo.checkValidity()){faltantes.push(rotulo);const box=campo.closest('.field');box.classList.add('invalido');const aviso=document.createElement('small');aviso.className='campo-erro';aviso.textContent=`Verifique o formato do campo ${rotulo}.`;box.append(aviso);}}return faltantes;}
+const CAMPOS_OPCIONAIS_INTERNOS=new Set(['telefone','celular','complemento','cep','bairro']);
+function validar(){atualizarDadosComunsReserva();validarNascimento();limparErros();const faltantes=[];for(const [rotulo,id] of campos){if(id==='especiais'&&el('necessidade').value!=='Sim')continue;const campo=el(id);if(CAMPOS_OPCIONAIS_INTERNOS.has(id)&&!campo.value.trim())continue;if(!campo.value.trim()){faltantes.push(rotulo);marcarErro(campo,rotulo);}else if(!campo.checkValidity()){faltantes.push(rotulo);const box=campo.closest('.field');box.classList.add('invalido');const aviso=document.createElement('small');aviso.className='campo-erro';aviso.textContent=`Verifique o formato do campo ${rotulo}.`;box.append(aviso);}}if(el('veiculoProprio').value==='Sim'){
+ for(const [rotulo,id] of [['Marca, modelo e cor','veiculoDescricao'],['Placa','veiculoPlaca']]){
+  if(!el(id).value.trim()){faltantes.push(rotulo);marcarErro(el(id),rotulo);}
+ }
+}return faltantes;}
 function declaracaoTermos(){
  const nome=el('nome').value.trim() || '(nome)';
  const tipo=el('tipoDocumento').value.trim() || '(tipo de documento)';
@@ -235,7 +333,7 @@ function atualizarDeclaracao(){el('texto-termo-aceite').textContent=declaracaoTe
 function limparErroTermo(){el('bloco-termo-aceite').classList.remove('invalido');el('erro-termo-aceite').hidden=true;}
 ['nome','tipoDocumento','numeroDocumento'].forEach(id=>{el(id).addEventListener('input',atualizarDeclaracao);el(id).addEventListener('change',atualizarDeclaracao);});
 el('aceitarTermos').addEventListener('change',()=>{limparErroTermo();atualizarBotaoNovo();});
-function gerarTexto(){const titulo='POUSADA ALFORRIA - PRÉ-CHECK-IN';const dados=campos.map(([rotulo,id])=>`${rotulo}: ${id==='especiais'&&el('necessidade').value!=='Sim'?'':id==='nascimento'?dataFormatada(el(id).value):el(id).value.trim()}`);return [titulo,'',...dados,'','DECLARAÇÃO DE CIÊNCIA E CONCORDÂNCIA',declaracaoTermos(),'Aceite da declaração: Sim'].join('\n');}
+function gerarTexto(){const titulo='POUSADA ALFORRIA - PRÉ-CHECK-IN';const dados=campos.map(([rotulo,id])=>`${rotulo}: ${id==='especiais'&&el('necessidade').value!=='Sim'?'':id==='nascimento'?dataFormatada(el(id).value):el(id).value.trim()}`);const veiculo=[`Marca, modelo e cor: ${el('veiculoProprio').value==='Sim'?el('veiculoDescricao').value.trim():''}`,`Placa: ${el('veiculoProprio').value==='Sim'?el('veiculoPlaca').value.trim():''}`];return [titulo,'',...dados,...veiculo,'','DECLARAÇÃO DE CIÊNCIA E CONCORDÂNCIA',declaracaoTermos(),'Aceite da declaração: Sim'].join('\n');}
 function formularioAberto(){return areaAtual.style.display!=='none';}
 function atualizarBotaoNovo(){
  const podeAdicionar=hospedesSalvos.length<LIMITE_HOSPEDES && indiceEdicao===null && !finalizado;
@@ -256,20 +354,27 @@ function fecharFormulario(){
 function abrirFormulario(){
  areaAtual.querySelector('.termo-aceite').after(el('novoHospede').closest('.actions'));
  areaAtual.style.display='block';
+ atualizarPerguntaEndereco(indiceEdicao===null?'':(hospedesSalvos[indiceEdicao]?.usarEnderecoAnterior||''));
+ atualizarDadosComunsReserva();
  botaoAdicionarHospede.hidden=true;
  botaoAdicionarHospede.setAttribute('aria-expanded','true');
  areaAnteriores.after(areaAtual);
  atualizarBotaoNovo();
- el('responsavelReserva').focus();
+ el(indiceHospedeAtual()===0?'responsavelReserva':'nome').focus();
 }
 
 function capturarDados(){
  const valores={};for(const [,id] of campos)valores[id]=el(id).value;
- return {valores,aceite:el('aceitarTermos').checked,nome:[el('nome').value.trim(),el('sobrenome').value.trim()].filter(Boolean).join(' '),texto:gerarTexto()};
+ return {valores,veiculoDescricao:el('veiculoDescricao').value,veiculoPlaca:el('veiculoPlaca').value,usarEnderecoAnterior:enderecoAnteriorEscolha,aceite:el('aceitarTermos').checked,nome:[el('nome').value.trim(),el('sobrenome').value.trim()].filter(Boolean).join(' '),texto:gerarTexto()};
 }
 function restaurarDados(dados){
  for(const [,id] of campos){const campo=el(id);campo.value=dados.valores[id]??'';campo.setCustomValidity('');}
+ el('veiculoDescricao').value=dados.veiculoDescricao||'';
+ el('veiculoPlaca').value=dados.veiculoPlaca||'';
+ atualizarVeiculo();
  el('aceitarTermos').checked=!!dados.aceite;
+ atualizarPerguntaEndereco(dados.usarEnderecoAnterior||'');
+ atualizarDadosComunsReserva();
  limparErros();limparErroTermo();atualizarEspeciais();atualizarDeclaracao();atualizarBotaoNovo();
 }
 function mostrarAnteriores(){
@@ -289,7 +394,7 @@ function mostrarAnteriores(){
    abrirFormulario();restaurarDados(hospedesSalvos[i]);
    botaoSalvarEdicao.hidden=false;atualizarBotaoNovo();mostrarAnteriores();
    mensagem(`Editando Hóspede ${i+1}. Faça as alterações e clique em Salvar alterações do hóspede.`);
-   areaAtual.scrollIntoView({behavior:'smooth',block:'start'});el('responsavelReserva').focus();
+   areaAtual.scrollIntoView({behavior:'smooth',block:'start'});el(i===0?'responsavelReserva':'nome').focus();
   });
   bloco.append(texto,editar);areaAnteriores.append(bloco);
  });
@@ -307,6 +412,11 @@ botaoSalvarEdicao.addEventListener('click',()=>{
 function limparHospedeAtual(){
  for(const [,id] of campos){const c=el(id);if(c.tagName==='SELECT')c.selectedIndex=0;else c.value='';c.setCustomValidity('');}
  el('aceitarTermos').checked=false;
+ el('veiculoDescricao').value='';
+ el('veiculoPlaca').value='';
+ atualizarVeiculo();
+ atualizarPerguntaEndereco('');
+ atualizarDadosComunsReserva();
  limparErros();limparErroTermo();
  atualizarEspeciais();atualizarDeclaracao();atualizarBotaoNovo();
 }
@@ -314,7 +424,7 @@ function validarHospedeAtual(){
  const faltantes=validar();
  if(faltantes.length){
   mensagem(`Não foi possível adicionar/finalizar. ${faltantes.length===1?'Falta preencher o campo':'Faltam preencher os campos'}: ${faltantes.join(', ')}.`,true);
-  el(campos.find(([rotulo])=>rotulo===faltantes[0])[1]).focus();return false;
+  el(([...campos,['Marca, modelo e cor','veiculoDescricao'],['Placa','veiculoPlaca']].find(([rotulo])=>rotulo===faltantes[0]))[1]).focus();return false;
  }
  if(!el('aceitarTermos').checked){
   el('bloco-termo-aceite').classList.add('invalido');el('erro-termo-aceite').hidden=false;
@@ -359,6 +469,25 @@ el('finalizar').addEventListener('click',()=>{
  if(formularioAberto()){
   if(!validarHospedeAtual())return;
   if(hospedesSalvos.length>=LIMITE_HOSPEDES){mensagem('O limite é de 5 hóspedes.',true);return;}
+ }
+ // Atualiza os dados compartilhados dos hóspedes adicionais caso o primeiro tenha sido editado.
+ const primeiro=hospedesSalvos[0];
+ if(primeiro){
+  for(let i=1;i<hospedesSalvos.length;i++){
+   const h=hospedesSalvos[i];
+   for(const id of ['responsavelReserva','veiculoProprio'])
+    h.valores[id]=primeiro.valores[id]||'';
+   h.veiculoDescricao=primeiro.veiculoDescricao||'';
+   h.veiculoPlaca=primeiro.veiculoPlaca||'';
+   h.texto=h.texto.split('\\n').map(linha=>{
+    const mapa={'Insira o nome de quem fez a reserva':'responsavelReserva','Está com veículo próprio?':'veiculoProprio'};
+    for(const [rotulo,id] of Object.entries(mapa))
+     if(linha.startsWith(rotulo+':'))return rotulo+': '+h.valores[id];
+    if(linha.startsWith('Marca, modelo e cor:'))return 'Marca, modelo e cor: '+(h.valores.veiculoProprio==='Sim'?h.veiculoDescricao:'');
+    if(linha.startsWith('Placa:'))return 'Placa: '+(h.valores.veiculoProprio==='Sim'?h.veiculoPlaca:'');
+    return linha;
+   }).join('\\n');
+  }
  }
  const todos=[...hospedesSalvos.map(h=>h.texto)];
  if(formularioAberto())todos.push(gerarTexto());
