@@ -434,7 +434,6 @@ function atualizarDeclaracao(){el('texto-termo-aceite').textContent=declaracaoTe
 function limparErroTermo(){el('bloco-termo-aceite').classList.remove('invalido');el('erro-termo-aceite').hidden=true;}
 ['nome','tipoDocumento','numeroDocumento'].forEach(id=>{el(id).addEventListener('input',atualizarDeclaracao);el(id).addEventListener('change',atualizarDeclaracao);});
 el('aceitarTermos').addEventListener('change',()=>{limparErroTermo();atualizarBotaoNovo();});
-<<<<<<< HEAD
 // Mantém os valores oficiais em pt-BR mesmo se o navegador traduzir
 // os textos visíveis dos menus. Não envia dados pessoais a tradutores externos.
 const OPCOES_ORIGINAIS_PTBR = Object.create(null);
@@ -479,9 +478,6 @@ function valorCanonicoPtBr(id) {
  return campo.value.trim();
 }
 function gerarTexto(){const titulo='POUSADA ALFORRIA - PRÉ-CHECK-IN';const dados=campos.map(([rotulo,id])=>`${rotulo}: ${id==='especiais'&&el('necessidade').value!=='Sim'?'':id==='nascimento'?dataFormatada(el(id).value):valorCanonicoPtBr(id)}`);const veiculo=[`Marca, modelo e cor: ${el('veiculoProprio').value==='Sim'?el('veiculoDescricao').value.trim():''}`,`Placa: ${el('veiculoProprio').value==='Sim'?el('veiculoPlaca').value.trim():''}`];return [titulo,'',...dados,...veiculo,'','DECLARAÇÃO DE CIÊNCIA E CONCORDÂNCIA',declaracaoTermos(),'Aceite da declaração: Sim'].join('\n');}
-=======
-function gerarTexto(){const titulo='POUSADA ALFORRIA - PRÉ-CHECK-IN';const dados=campos.map(([rotulo,id])=>`${rotulo}: ${id==='especiais'&&el('necessidade').value!=='Sim'?'':id==='nascimento'?dataFormatada(el(id).value):valorEndereco(id).trim()}`);const veiculo=[`Marca, modelo e cor: ${el('veiculoProprio').value==='Sim'?el('veiculoDescricao').value.trim():''}`,`Placa: ${el('veiculoProprio').value==='Sim'?el('veiculoPlaca').value.trim():''}`];return [titulo,'',...dados,...veiculo,'','DECLARAÇÃO DE CIÊNCIA E CONCORDÂNCIA',declaracaoTermos(),'Aceite da declaração: Sim'].join('\n');}
->>>>>>> ff429ce7a91c8db01b095206c7a2cb85fa1de64d
 function formularioAberto(){return areaAtual.style.display!=='none';}
 function atualizarBotaoNovo(){
  const podeAdicionar=hospedesSalvos.length<LIMITE_HOSPEDES && indiceEdicao===null && !finalizado;
