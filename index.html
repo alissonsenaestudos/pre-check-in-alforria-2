@@ -255,6 +255,35 @@ for(const id of ['dataEmissaoDocumento','dataValidadeDocumento']){
  });
 }
 el('tipoDocumento').addEventListener('change',()=>atualizarDatasDocumento(true));
+// CPF: somente 11 algarismos; outros documentos mantêm seu comportamento.
+function configurarNumeroDocumentoCPF(){
+ const campo=el('numeroDocumento');
+ const cpf=el('tipoDocumento').value==='CPF';
+ if(cpf){
+  campo.setAttribute('inputmode','numeric');
+  campo.setAttribute('maxlength','11');
+  campo.setAttribute('minlength','11');
+  campo.setAttribute('pattern','[0-9]{11}');
+  campo.setAttribute('title','Informe exatamente 11 números para o CPF.');
+  campo.value=campo.value.replace(/\D/g,'').slice(0,11);
+  campo.setCustomValidity(campo.value.length===11?'':'O CPF deve conter exatamente 11 números.');
+ }else{
+  campo.removeAttribute('inputmode');
+  campo.removeAttribute('maxlength');
+  campo.removeAttribute('minlength');
+  campo.removeAttribute('pattern');
+  campo.removeAttribute('title');
+  campo.setCustomValidity('');
+ }
+ atualizarDeclaracao();
+}
+el('numeroDocumento').addEventListener('input',configurarNumeroDocumentoCPF);
+el('tipoDocumento').addEventListener('change',()=>{
+ el('numeroDocumento').value='';
+ configurarNumeroDocumentoCPF();
+});
+configurarNumeroDocumentoCPF();
+
 atualizarDatasDocumento();
 const CAMPOS_VEICULO=['veiculoDescricao','veiculoPlaca'];
 function atualizarVeiculo(){
