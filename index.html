@@ -191,6 +191,50 @@ document.addEventListener('input',event=>{
   try{campo.setSelectionRange(inicio,fim);}catch(_erro){}
  }
 },true);
+// Validação de caracteres dos campos solicitados (inclusive colagem).
+// Letras Unicode e espaços internos são permitidos nos nomes e na cidade.
+const camposSomenteLetras=new Set(['nome','sobrenome','cidade','responsavelReserva']);
+const camposSomenteNumeros=new Set(['telefone','celular','cep']);
+const campoDataNumerica='nascimento';
+function filtrarEntradaSolicitada(campo){
+ const id=campo.id;
+ if(!camposSomenteLetras.has(id)&&!camposSomenteNumeros.has(id))return;
+ const original=campo.value;
+ const pos=campo.selectionStart;
+ const permitido=camposSomenteLetras.has(id)?/[\p{L}\p{M} ]/u:/[0-9]/;
+ const limpar=texto=>Array.from(texto).filter(c=>permitido.test(c)).join('');
+ const novo=limpar(original);
+ if(novo===original)return;
+ const novaPos=pos===null?null:limpar(original.slice(0,pos)).length;
+ campo.value=novo;
+ if(novaPos!==null&&document.activeElement===campo){
+  try{campo.setSelectionRange(novaPos,novaPos);}catch(_erro){}
+ }
+}
+document.addEventListener('beforeinput',e=>{
+ const campo=e.target;
+ if(!(campo instanceof HTMLInputElement))return;
+ const id=campo.id;
+ if(!camposSomenteLetras.has(id)&&!camposSomenteNumeros.has(id)&&id!==campoDataNumerica)return;
+ if(e.isComposing||e.inputType.startsWith('delete')||e.inputType.startsWith('history'))return;
+ // A máscara de data continua inserindo as barras automaticamente.
+ if(e.inputType==='insertText'&&e.data){
+  const valido=camposSomenteLetras.has(id)?/^[\p{L}\p{M} ]+$/u.test(e.data):/^[0-9]+$/.test(e.data);
+  if(!valido)e.preventDefault();
+ }
+});
+document.addEventListener('input',e=>{
+ const campo=e.target;
+ if(campo instanceof HTMLInputElement)filtrarEntradaSolicitada(campo);
+},true);
+['nome','sobrenome','cidade','responsavelReserva','telefone','celular','cep','nascimento'].forEach(id=>{
+ const campo=document.getElementById(id);
+ if(!campo)return;
+ if(camposSomenteNumeros.has(id)||id===campoDataNumerica)campo.setAttribute('inputmode','numeric');
+ if(camposSomenteLetras.has(id))campo.setAttribute('pattern','[^\u0030-\u0039]+');
+ if(camposSomenteNumeros.has(id))campo.setAttribute('pattern','[0-9]*');
+});
+
 const botaoAdicionarHospede=document.getElementById('adicionarHospede');
 const botaoRealizarCheckin=document.getElementById('realizarCheckin');
 const camposHospede=document.getElementById('camposHospede');
@@ -267,6 +311,14 @@ function configurarNumeroDocumentoCPF(){
   campo.setAttribute('title','Informe exatamente 11 números para o CPF.');
   campo.value=campo.value.replace(/\D/g,'').slice(0,11);
   campo.setCustomValidity(campo.value.length===11?'':'O CPF deve conter exatamente 11 números.');
+ }else if(el('tipoDocumento').value==='Passaporte'){
+  campo.setAttribute('inputmode','text');
+  campo.removeAttribute('maxlength');
+  campo.removeAttribute('minlength');
+  campo.setAttribute('pattern','[A-Za-z0-9]+');
+  campo.setAttribute('title','Use apenas letras e números, sem espaços ou símbolos.');
+  campo.value=campo.value.replace(/[^A-Za-z0-9]/g,'');
+  campo.setCustomValidity('');
  }else{
   campo.removeAttribute('inputmode');
   campo.removeAttribute('maxlength');
@@ -277,6 +329,10 @@ function configurarNumeroDocumentoCPF(){
  }
  atualizarDeclaracao();
 }
+el('numeroDocumento').addEventListener('beforeinput',e=>{
+ if(el('tipoDocumento').value!=='Passaporte'||e.isComposing||!e.data)return;
+ if(e.inputType==='insertText'&&!/^[A-Za-z0-9]+$/.test(e.data))e.preventDefault();
+});
 el('numeroDocumento').addEventListener('input',configurarNumeroDocumentoCPF);
 el('tipoDocumento').addEventListener('change',()=>{
  el('numeroDocumento').value='';
@@ -461,7 +517,7 @@ el('nascimento').addEventListener('input',e=>{
 function limparErros(){form.querySelectorAll('.invalido').forEach(e=>e.classList.remove('invalido'));form.querySelectorAll('.campo-erro').forEach(e=>e.remove());}
 function marcarErro(campo,rotulo){const box=campo.closest('.field');box.classList.add('invalido');const aviso=document.createElement('small');aviso.className='campo-erro';aviso.textContent=`Preencha o campo ${rotulo}.`;box.append(aviso);}
 const CAMPOS_OPCIONAIS_INTERNOS=new Set(['telefone','celular','complemento','cep','bairro']);
-function validar(){atualizarDadosComunsReserva();validarNascimento();validarDataDocumento(el('dataEmissaoDocumento'));validarDataDocumento(el('dataValidadeDocumento'));limparErros();const faltantes=[];for(const [rotulo,id] of campos){if(id==='especiais'&&el('necessidade').value!=='Sim')continue;if((id==='dataEmissaoDocumento'||id==='dataValidadeDocumento')&&el('tipoDocumento').value!=='Passaporte')continue;const campo=id==='estado'?estadoAtivo():el(id);if(CAMPOS_OPCIONAIS_INTERNOS.has(id)&&!campo.value.trim())continue;if(!campo.value.trim()){faltantes.push(rotulo);marcarErro(campo,rotulo);}else if(!campo.checkValidity()){faltantes.push(rotulo);const box=campo.closest('.field');box.classList.add('invalido');const aviso=document.createElement('small');aviso.className='campo-erro';aviso.textContent=`Verifique o formato do campo ${rotulo}.`;box.append(aviso);}}if(el('veiculoProprio').value==='Sim'){
+function validar(){['nome','sobrenome','cidade','responsavelReserva','telefone','celular','cep'].forEach(id=>filtrarEntradaSolicitada(el(id)));atualizarDadosComunsReserva();validarNascimento();validarDataDocumento(el('dataEmissaoDocumento'));validarDataDocumento(el('dataValidadeDocumento'));limparErros();const faltantes=[];for(const [rotulo,id] of campos){if(id==='especiais'&&el('necessidade').value!=='Sim')continue;if((id==='dataEmissaoDocumento'||id==='dataValidadeDocumento')&&el('tipoDocumento').value!=='Passaporte')continue;const campo=id==='estado'?estadoAtivo():el(id);if(CAMPOS_OPCIONAIS_INTERNOS.has(id)&&!campo.value.trim())continue;if(!campo.value.trim()){faltantes.push(rotulo);marcarErro(campo,rotulo);}else if(!campo.checkValidity()){faltantes.push(rotulo);const box=campo.closest('.field');box.classList.add('invalido');const aviso=document.createElement('small');aviso.className='campo-erro';aviso.textContent=`Verifique o formato do campo ${rotulo}.`;box.append(aviso);}}if(el('veiculoProprio').value==='Sim'){
  for(const [rotulo,id] of [['Marca, modelo e cor','veiculoDescricao'],['Placa','veiculoPlaca']]){
   if(!el(id).value.trim()){faltantes.push(rotulo);marcarErro(el(id),rotulo);}
  }
